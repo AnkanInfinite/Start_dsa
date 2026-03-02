@@ -3,7 +3,7 @@ using namespace std;
 void print7(int n){
     for(int rows=0;rows<n;rows++){
         //for first spaces
-        for(int prespace=0;prespace<n-rows;prespace++){
+        for(int prespace=0;prespace<n-rows-1;prespace++){
             cout << " ";
         }
         //for stars in middle
@@ -11,7 +11,7 @@ void print7(int n){
             cout << "*";
         }
         //for space at end
-        for(int postspace=0;postspace<n-rows;postspace++){
+        for(int postspace=0;postspace<n-rows-1;postspace++){
             cout << " ";
         }
         cout << endl;
