@@ -38,7 +38,7 @@ void print11(int n){
 void print11a(int n){
     for(int rows=0;rows<n;rows++){
         for(int columns=0;columns<=rows;columns++){
-            cout << "" << (rows+columns+1)%2;
+            cout << "" << (rows+columns+1)%2 << " ";
         }
         cout << endl;
     }
