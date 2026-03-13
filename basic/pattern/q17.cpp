@@ -19,8 +19,12 @@ void print17(int n){
         char chr='A'; 
         for(int i=0;i<2*rows+1;i++){
             cout << chr;
-            if(i<=breakpoint)chr++;
-            else chr--; //we decrement the charater after mid or peak
+            if(i<breakpoint){
+                chr++;
+            }
+            else{ 
+                chr--; //we decrement the charater after mid or peak
+            }
         }
         cout << endl;
     }
