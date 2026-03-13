@@ -15,12 +15,12 @@ void print17(int n){
             cout << " ";
         }
         //Middle Characters
-        int breakpoint=(2*rows+1)/2;
+        int breakpoint=(2*rows+1)/2;//middle of characters we are printing
         char chr='A'; 
         for(int i=0;i<2*rows+1;i++){
             cout << chr;
             if(i<=breakpoint)chr++;
-            else chr--;
+            else chr--; //we decrement the charater after mid or peak
         }
         cout << endl;
     }
