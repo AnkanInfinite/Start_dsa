@@ -9,20 +9,18 @@ ABCDEDCBA
 #include<iostream>
 using namespace std;
 void print17(int n){
-    int t;
     for(int rows=0;rows<n;rows++){
         //leading spaces
         for(int lspace=0;lspace<n-rows-1;lspace++){
             cout << " ";
         }
         //Middle Characters
-        for(t=0;t<=rows;t++){
-            cout << char('A'+t);
-        }
-        t-=2;
-        while(t>=0){
-            cout << char('A'+t);
-            t--;
+        int breakpoint=(2*rows+1)/2;
+        char chr='A'; 
+        for(int i=0;i<2*rows+1;i++){
+            cout << chr;
+            if(i<=breakpoint)chr++;
+            else chr--;
         }
         cout << endl;
     }
