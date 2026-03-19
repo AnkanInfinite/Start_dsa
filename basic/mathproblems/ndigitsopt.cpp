@@ -4,7 +4,7 @@ The number will have no leading zeroes, except when the number is 0 itself.
 */
 //optimised code using log base 10 + 1
 #include<iostream>
-#include<math.h>
+#include<cmath> //Using cmath as it is specially for c++ and math.h is for backward copatibility with c
 using namespace std;
 int cdigits(int n){
     if(n==0)return 1;
