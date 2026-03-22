@@ -35,6 +35,26 @@ std:: vector<int> divisors_opt(int n){
     }
     return vtr;
 }
+//to get optimised sorted vector
+std:: vector<int> divisors_sorted_opt(int n){
+    std:: vector<int> vtr;
+    for(int i=1;i*i<=n;++i){
+        if(n%i==0){
+            vtr.push_back(i);//beacuse i moves in accending order
+        }
+    }
+    int index=vtr.size()-1;//we go to last element
+    //if n is a perfect square then we move 1 element back so as not to add duplicate element
+    if(vtr[index]*vtr[index]==n){
+        --index;
+    }
+    //now n/*it gives us divisors we didn't add in accending order
+    while(index >=0){
+        vtr.push_back(n/vtr[index]);
+        --index;
+    }
+    return vtr;
+}
 
 int main(){
     int x;
@@ -43,7 +63,7 @@ int main(){
         std:: cin >> x;
     }while(x<0);
     std:: cout << "The divisors of " << x << " are ";
-    std:: vector<int> divs =divisors(x);
+    std:: vector<int> divs =divisors_sorted_opt(x);
     for(std::vector<int> :: iterator it=divs.begin();it != divs.end();++it){
         std:: cout << " " << *it;
     }
