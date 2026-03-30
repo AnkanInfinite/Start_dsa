@@ -5,4 +5,5 @@ rec2
 factorial_rec
 revArray
 stringPalindrome
+fibonacci
 .*exe
