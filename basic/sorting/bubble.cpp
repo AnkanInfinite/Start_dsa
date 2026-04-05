@@ -16,20 +16,25 @@ We Start from begining of array and swap adjacent elements to keep larger elemen
 till the second position is at last index of array
 Now we change last to previous index as at last the largest element is present
 And we keep doing this till last doesn't become zero
-Time complexility of the code is O(N^2)
+Time complexility of the code is :
+worst case :O(N^2)
+best case : O(N)
 */
 std::vector<int> bubble_sort(std::vector<int> &nums){
     int last=nums.size() - 1 ;
-    while(last !=0){
+    bool found=true;//We use flag to see if a pass goes without swap if then we break out of loop as it is already sorted
+    while(last !=0 && found){
+        found=false;
         for(int j=0;j<last;j++){
             if(nums[j]>nums[j+1]){
                 //swap
                 int temp=nums[j];
                 nums[j]=nums[j+1];
                 nums[j+1]=temp;
+                found=true;
             }
         }
-        last--;//Since last element is now lasrgest we don't check it in next iteration
+        last--;//Since last element is now largest we don't check it in next iteration
     }
     return nums;
 }
