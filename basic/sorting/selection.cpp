@@ -11,7 +11,12 @@ The elements after sorting :
 
 #include<iostream>
 #include<vector>
-
+/*
+We consider Two arrays initially first having 0 elements and second the entire array.
+we consider the array first to be sorted and in second array take the first element and swap it with the smallest element in the second array.
+Now the first sorted array contains one element and the second unsorted array the rest of the elements.
+We repeat this process till only one element remains in the second array as single element is always sorted.
+*/
 std::vector<int> selection_sort(std::vector<int> &nums){
     for(int i=0;i<nums.size() - 1;i++){
         int min_element_index=i;
