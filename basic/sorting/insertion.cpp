@@ -15,7 +15,10 @@ Space Complexity : O(1)
 
 #include<iostream>
 #include<vector>
-
+/*
+In insertion Sort we consider an array from first two elements and put smallest at first 
+then we keep including next element in our considered array and put the new element in it's Suitable position of the considered array 
+*/
 std::vector<int> insertion_sort(std::vector<int> nums){
     int size=nums.size();
     if(size<2)return nums;
