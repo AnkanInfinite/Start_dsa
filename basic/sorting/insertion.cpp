@@ -37,10 +37,12 @@ std::vector<int> insertion_sort(std::vector<int> nums){
         */
        //using shift is more optimal
        int temp=nums[j];
+       //We shift all elements of our considered array to right till we get the suitable position of new element
        while(j>0 && temp<nums[j-1]){
         nums[j]=nums[j-1];
         j--;
        }
+       //The new element is palced in it's suitable position
        nums[j]=temp;
     }
     return nums;
