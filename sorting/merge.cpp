@@ -7,6 +7,11 @@ Enter how many elements to enter :12
 13  4324 23 42 34 2 34 2 34 23  53252 35 
 The elements after sorting : 
 2 2 13 23 23 34 34 34 35 42 4324 53252 
+
+Time Complexity :
+   O(N log N)
+Space Complexity:
+   O(N)
 */
 
 #include<iostream>
