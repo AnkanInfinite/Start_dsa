@@ -48,10 +48,15 @@ void merge(std::vector<int> &arr , int low , int mid , int high){
 }
 
 void merge_sort(std::vector<int> &arr , int low , int high){
+    //If only one element then return as base condition
     if(low>=high) return;
+    //Dividing the single array into two parts
     int mid=(low+high)/2;
+    //Sorting the first part
     merge_sort(arr,low,mid);
+    //after first part is sorted WE sort the second part
     merge_sort(arr,mid+1,high);
+    //After both parts of the array are individually sorted we merge them into a single sorted array
     merge(arr,low,mid,high);
 }
 
