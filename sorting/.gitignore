@@ -2,4 +2,5 @@ selection
 bubble
 insertion
 merge
+recursiveBubble
 *.exe
