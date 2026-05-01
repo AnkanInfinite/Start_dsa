@@ -64,7 +64,7 @@ int main(){
         nums.push_back(temp);
         x--;
     }
-    rotate(nums,7);
+    rotate_left(nums,7);
     std::cout << "The array after rotating : " << std::endl;
     for(auto it : nums){
         std::cout << it <<' ';
