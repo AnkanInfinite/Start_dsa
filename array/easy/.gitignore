@@ -3,4 +3,5 @@ secondlargest
 checkSorted
 removeDuplicates
 rotateArray
+moveZeros
 *.exe
