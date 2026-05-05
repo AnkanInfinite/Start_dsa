@@ -6,4 +6,5 @@ rotateArray
 moveZeros
 linearSearch
 unionSortedArrays
+missingNumber
 *.exe
