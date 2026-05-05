@@ -7,4 +7,5 @@ moveZeros
 linearSearch
 unionSortedArrays
 missingNumber
+maxConsecutiveOnes
 *.exe
