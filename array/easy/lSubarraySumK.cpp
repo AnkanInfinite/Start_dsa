@@ -6,13 +6,14 @@ If no such sub-array exists, return 0.
 
 #include<iostream>
 #include<vector>
-
+#include<unordered_map>
 /*
 Approach 1:
 check all sub arrays and store length of each sub array whose sum is k in an array
 Return largest element of the created array
 Time Complexity: O(N^2)
 Space Complexity: O(N)
+Note: If question asks for length of all subarrays with sum k , then it is ok 
 */
 
 int longest_subarray_sum_k_1(std::vector<int> &nums , int k){
@@ -75,21 +76,55 @@ NOTE: Only works for array containing non-negative , as it assumes increasing wi
 int longest_subarray_sum_k_3(std::vector<int> &nums , int k){
     int left=0;
     int right=0;
-    int maxSubarray=0;
+    int maxLen=0;
     int n=nums.size();
     int sum=0;
     while(right<n && left<=right){
         sum+=nums[right];
-        while(sum>k){
+        while(sum>k && left<=right){
             sum-=nums[left];
             left++;//We move the left pointer till we get sum<=k
         }
         if(sum==k){
-            maxSubarray=std::max(maxSubarray,right-left+1);//Store the longest window length whose sum of elements is k
+            maxLen=std::max(maxLen,right-left+1);//Store the longest window length whose sum of elements is k
         }
         right++;            
     }
-    return maxSubarray;
+    return maxLen;
+}
+
+/*
+Approach 4: Works for Arrays containing Negative elements
+Using HashMap and prefixSum
+We store the sum(prefixSum) and the index where we get the sum in map
+for each new sum(current) we check if we have (sum-k) in our map
+as if previously we got prefixSum==sum(current) - k(target sum)
+then the subarray from the index of prefixSum till current index has sum equal to K
+Now we store the maxLength of SubArray
+
+Time Complexity : O(N) or it can be O(N^2) at worst case for unordered map which is very rare can use map insted to get O(N logN)
+Space Complexity : O(N)
+*/
+
+int longest_subarray_sum_k_4(std::vector<int> &nums , int k){
+    std::unordered_map<long long , int > preSum;
+    int maxLen=0;
+    long long sum=0;
+    for(int i=0;i<nums.size();i++){
+        sum+=nums[i];
+        if(sum==k){
+            maxLen=std::max(maxLen,i+1);
+        }
+        long long rem=sum-k; 
+        if(preSum.find(rem) != preSum.end()){
+            maxLen=std::max(i-preSum.at(rem),maxLen);
+        }
+        //We only insert to hasmap the most left sum as the next elemnts may be 0
+        if(preSum.find(sum) == preSum.end()){
+            preSum[sum]=i;
+        }
+    }
+    return maxLen;
 }
 
 int main(){
