@@ -48,3 +48,29 @@ int maxSubarray_2(std::vector<int> &nums){
     }
     return maxSum;
 }
+
+//To print the subarray containing largest sum
+void printMaxSubarray(std::vector<int> &nums){
+    int maxSum=std::numeric_limits<int>::min();
+    int curSum=0;
+    int tempStart=-1;
+    int arrStart=-1;
+    int arrEnd=-1;
+    for(int i=0;i<nums.size();i++){
+        if(curSum==0)tempStart=i;
+        curSum+=nums[i];
+        if(curSum>maxSum){
+            maxSum=curSum;
+            arrStart=tempStart;
+            arrEnd=i;
+        }
+        if(curSum<0){
+            curSum=0;
+        }
+    }
+    //printing
+    for(int i=arrStart;i<=arrEnd;i++){
+        std::cout << nums[i] << ' ';
+    }
+    std::cout << std::endl;
+}
